@@ -14,6 +14,8 @@ class PermissionsTableSeeder extends Seeder
     {
         // Registrar todos los permisos a utilizar en el sistema 
         // Evito el factory dado que no quiero crear registros falsos.
+        
+        // Shinobi requiere que el CACHE_DRIVER sea array o memcached y no un file -- cambiar en .env
 
         // Permisos sobre el Módulo de Usuarios -- los usuarios al registrarse, autométicamente se crean
         Permission::create([
