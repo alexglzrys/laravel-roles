@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -39,7 +40,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        // Obtener todos los roles disponibles en el sistema:
+        // 1 Rol puede estar compuesto de muchos permisos. Por tanto, a los usuarios se les asignan roles.
+        $roles = Role::get();
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -51,7 +55,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        // Actualizar los datos del usuario
         $user->update($request->all());
+        // Actualizar los roles asignados -- roles() es un metodo que se hereda del trait Shinobi asociado a los usuarios
+        $user->roles()->sync($request->input('roles'));
+
         return redirect()->route('users.edit', $user->id)->with('info', 'Usuario actualizado satisfactoriamente en el sistema');
     }
 
