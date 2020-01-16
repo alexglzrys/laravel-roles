@@ -35,10 +35,10 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/roles', 'RoleController@index')->name('roles.index')->middleware('can:roles.index');
     Route::get('/roles/create', 'RoleController@create')->name('roles.create')->middleware('can:roles.store');
     Route::post('/roles', 'RoleController@store')->name('roles.store')->middleware('can:roles.store');
-    Route::get('/roles/{product}', 'RoleController@show')->name('roles.show')->middleware('can:roles.show');
-    Route::get('/roles/{product}/edit', 'RoleController@edit')->name('roles.edit')->middleware('can:roles.edit');
-    Route::put('/roles/{product}', 'RoleController@update')->name('roles.update')->middleware('can:roles.edit');
-    Route::delete('/roles/{product}', 'RoleController@destroy')->name('roles.destroy')->middleware('can:roles.destroy');
+    Route::get('/roles/{role}', 'RoleController@show')->name('roles.show')->middleware('can:roles.show');
+    Route::get('/roles/{role}/edit', 'RoleController@edit')->name('roles.edit')->middleware('can:roles.edit');
+    Route::put('/roles/{role}', 'RoleController@update')->name('roles.update')->middleware('can:roles.edit');
+    Route::delete('/roles/{role}', 'RoleController@destroy')->name('roles.destroy')->middleware('can:roles.destroy');
 
     // Establecer los permisos a las rutas del modelo User
     // Todo usuario tiene derecho a registrarse, mas adelante se le asignan sus permisos correspondientes
