@@ -24,8 +24,8 @@ Route::middleware(['auth'])->group(function() {
 
     // Establecer los permisos a las rutas del modelo Product
     Route::get('/products', 'ProductController@index')->name('products.index')->middleware('can:products.index');
-    Route::get('/products/create', 'ProductController@create')->name('products.create')->middleware('can:products.store');
-    Route::post('/products', 'ProductController@store')->name('products.store')->middleware('can:products.store');
+    Route::get('/products/create', 'ProductController@create')->name('products.create')->middleware('can:products.create');
+    Route::post('/products', 'ProductController@store')->name('products.store')->middleware('can:products.create');
     Route::get('/products/{product}', 'ProductController@show')->name('products.show')->middleware('can:products.show');
     Route::get('/products/{product}/edit', 'ProductController@edit')->name('products.edit')->middleware('can:products.edit');
     Route::put('/products/{product}', 'ProductController@update')->name('products.update')->middleware('can:products.edit');
@@ -33,8 +33,8 @@ Route::middleware(['auth'])->group(function() {
 
     // Establecer los permisos a las rutas del modelo Role
     Route::get('/roles', 'RoleController@index')->name('roles.index')->middleware('can:roles.index');
-    Route::get('/roles/create', 'RoleController@create')->name('roles.create')->middleware('can:roles.store');
-    Route::post('/roles', 'RoleController@store')->name('roles.store')->middleware('can:roles.store');
+    Route::get('/roles/create', 'RoleController@create')->name('roles.create')->middleware('can:roles.create');
+    Route::post('/roles', 'RoleController@store')->name('roles.store')->middleware('can:roles.create');
     Route::get('/roles/{role}', 'RoleController@show')->name('roles.show')->middleware('can:roles.show');
     Route::get('/roles/{role}/edit', 'RoleController@edit')->name('roles.edit')->middleware('can:roles.edit');
     Route::put('/roles/{role}', 'RoleController@update')->name('roles.update')->middleware('can:roles.edit');

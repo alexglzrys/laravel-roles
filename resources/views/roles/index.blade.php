@@ -28,7 +28,7 @@
                     <td width="10">
                       <!-- ¿El usuario puede ver los detalles de un rol? -->
                       @can('roles.show')
-                        <a href="{{ route('roles.show', $role->id) }}" class="btn btn-sm btn-success">Ver</a>
+                        <a href="{{ route('roles.show', $role->id) }}" class="btn btn-sm btn-success">Mostrar</a>
                       @endcan
                     </td>
                     <td width="10">
