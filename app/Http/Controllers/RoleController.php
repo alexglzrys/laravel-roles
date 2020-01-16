@@ -9,6 +9,24 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
     /**
+     * Configuración de middlewares para cada uno de los métodos de este controlador
+     * La ruta de este controlador se encuentra agrupada por el middleware auth
+     *      por lo que sólo hace falta especificar el middleware de roles y permisos en cada metodo
+     *      del mismo
+     * @return null
+     */
+
+    public function __construct()
+    {
+        // Para sistemas complejos, es frecuente la ausencia de controladores de recursos, ya que en ocasiones hacen falta mas o menos métodos, por tanto, el enfoque de asignar middlewares en las rutas es el más indicado para dichos casos.
+        $this->middleware('can:roles.index')->only('index');
+        $this->middleware('can:roles.show')->only('show');
+        $this->middleware('can:roles.destroy')->only('destroy');
+        $this->middleware('can:roles.create')->only(['create', 'store']);
+        $this->middleware('can:roles.edit')->only(['edit', 'update']);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

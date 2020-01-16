@@ -31,14 +31,8 @@ Route::middleware(['auth'])->group(function() {
     Route::put('/products/{product}', 'ProductController@update')->name('products.update')->middleware('can:products.edit');
     Route::delete('/products/{product}', 'ProductController@destroy')->name('products.destroy')->middleware('can:products.destroy');
 
-    // Establecer los permisos a las rutas del modelo Role
-    Route::get('/roles', 'RoleController@index')->name('roles.index')->middleware('can:roles.index');
-    Route::get('/roles/create', 'RoleController@create')->name('roles.create')->middleware('can:roles.create');
-    Route::post('/roles', 'RoleController@store')->name('roles.store')->middleware('can:roles.create');
-    Route::get('/roles/{role}', 'RoleController@show')->name('roles.show')->middleware('can:roles.show');
-    Route::get('/roles/{role}/edit', 'RoleController@edit')->name('roles.edit')->middleware('can:roles.edit');
-    Route::put('/roles/{role}', 'RoleController@update')->name('roles.update')->middleware('can:roles.edit');
-    Route::delete('/roles/{role}', 'RoleController@destroy')->name('roles.destroy')->middleware('can:roles.destroy');
+    // Establecer los permisos a las rutas del modelo Role -- ejemplo con ruta de recurso
+    Route::resource('roles', 'RoleController');
 
     // Establecer los permisos a las rutas del modelo User
     // Todo usuario tiene derecho a registrarse, mas adelante se le asignan sus permisos correspondientes
