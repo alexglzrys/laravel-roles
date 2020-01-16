@@ -44,9 +44,9 @@ Route::middleware(['auth'])->group(function() {
     // Todo usuario tiene derecho a registrarse, mas adelante se le asignan sus permisos correspondientes
     // El registro se lleva a cabo desde el formulario de auth
     Route::get('/users', 'UserController@index')->name('users.index')->middleware('can:users.index');
-    Route::get('/users/{product}', 'UserController@show')->name('users.show')->middleware('can:users.show');
-    Route::get('/users/{product}/edit', 'UserController@edit')->name('users.edit')->middleware('can:users.edit');
-    Route::put('/users/{product}', 'UserController@update')->name('users.update')->middleware('can:users.edit');
-    Route::delete('/users/{product}', 'UserController@destroy')->name('users.destroy')->middleware('can:users.destroy');
+    Route::get('/users/{user}', 'UserController@show')->name('users.show')->middleware('can:users.show');
+    Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit')->middleware('can:users.edit');
+    Route::put('/users/{user}', 'UserController@update')->name('users.update')->middleware('can:users.edit');
+    Route::delete('/users/{user}', 'UserController@destroy')->name('users.destroy')->middleware('can:users.destroy');
 
 });

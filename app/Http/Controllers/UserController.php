@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', compact($user));
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -39,7 +39,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'))
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -52,7 +52,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update($request->all());
-        return redirect()->route('users.edit')->with('info', 'Usuario actualizado satisfactoriamente en el sistema');
+        return redirect()->route('users.edit', $user->id)->with('info', 'Usuario actualizado satisfactoriamente en el sistema');
     }
 
     /**
