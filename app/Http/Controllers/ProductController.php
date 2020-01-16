@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -36,7 +36,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::create($request->all());
+        return redirect()->route('products.edit', $product->id)->with('info', 'Producto registrado satisfactoriamente en el sistema');
     }
 
     /**
@@ -47,7 +48,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        // Inyección automática de modelo en la ruta del controlador: Route Model Binding
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -58,7 +60,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        // Inyección automática de modelo en la ruta del controlador: Route Model Binding
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -70,7 +73,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        // Inyección automática de modelo en la ruta del controlador: Route Model Binding
+        $product->update($request->all());
+        return redirect()->route('products.edit', $product->id)->with('info', 'Producto actualizado satisfactoriamente en el sistema');
     }
 
     /**
@@ -81,6 +86,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        // Inyección automática de modelo en la ruta del controlador: Route Model Binding
+        $product->delete();
+        return back()->with('info', 'Producto eliminado correctamente del sistema');
     }
 }
