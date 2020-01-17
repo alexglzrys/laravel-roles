@@ -1,14 +1,17 @@
 <div class="form-group">
   {!! Form::label('name', 'Nombre del Rol') !!}
-  {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese un nombre para el nuevo rol']) !!}
+  {!! Form::text('name', null, ['class' => 'form-control ' . ($errors->has('name') ? 'is-invalid' : ''), 'placeholder' => 'Ingrese un nombre para el nuevo rol']) !!}
+  {!! $errors->first('name', '<span class="invalid-feedback">:message</span>') !!}
 </div>
 <div class="form-group">
   {!! Form::label('slug', 'Slug') !!}
-  {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese un identificador para el nuevo rol']) !!}
+  {!! Form::text('slug', null, ['class' => 'form-control ' . ($errors->has('slug') ? 'is-invalid' : ''), 'placeholder' => 'Ingrese un identificador para el nuevo rol']) !!}
+  {!! $errors->first('slug', '<span class="invalid-feedback">:message</span>') !!}
 </div>
 <div class="form-group">
   {!! Form::label('description', 'Descripción') !!}
-  {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 5, 'placeholder' => 'Ingrese una descripción detallada para el nuevo rol']) !!}
+  {!! Form::textarea('description', null, ['class' => 'form-control ' . ($errors->has('description') ? 'is-invalid' : ''), 'rows' => 5, 'placeholder' => 'Ingrese una descripción detallada para el nuevo rol']) !!}
+  {!! $errors->first('description', '<span class="invalid-feedback">:message</span>') !!}
 </div>
 
 <hr>

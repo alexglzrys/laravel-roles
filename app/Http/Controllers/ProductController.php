@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductEditRequest;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -34,7 +36,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCreateRequest $request)
     {
         $product = Product::create($request->all());
         return redirect()->route('products.edit', $product->id)->with('info', 'Producto registrado satisfactoriamente en el sistema');
@@ -71,7 +73,7 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductEditRequest $request, Product $product)
     {
         // Inyección automática de modelo en la ruta del controlador: Route Model Binding
         $product->update($request->all());

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+            <div class="card-header">Bienvenid@ <span class="badge badge-primary">{{ Auth::user()->name }}</span></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Sirvase en navegar por cada una de las secciones del sitio. <br><br>
+                    En caso de que la opción solicitada no aparezca en pantalla, favor de ponerse en contacto con el administrador del sitio, esto se debe generalmente a un problema de permisos.
                 </div>
             </div>
         </div>
