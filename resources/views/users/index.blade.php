@@ -6,7 +6,7 @@
       <div class="col-8 offset-2">
         <div class="card">
           <div class="card-header">
-            <h5>Administrador de Catálogo de Usuarios</h5>
+            <h5><i class="fas fa-book-reader"></i> Administrador de Catálogo de Usuarios</h5>
           </div>
           <div class="card-body">
             <table class="table table-hover table-striped table-bordered">
@@ -25,20 +25,20 @@
                     <td width="10">
                       <!-- ¿El usuario puede ver los detalles de un producto? -->
                       @can('users.show')
-                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-success">Mostrar</a>
+                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-success" style="width: 79px"><i class="fas fa-eye"></i> Mostrar</a>
                       @endcan
                     </td>
                     <td width="10">
                       <!-- ¿El usuario puede editar un producto? -->
                       @can('users.edit')
-                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning" style="width: 79px"><i class="fas fa-edit"></i> Editar</a>
                       @endcan
                     </td>
                     <td width="10">
                       <!-- ¿El usuario puede eliminar un producto? -->
                       @can('users.destroy')
                         {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
-                          {!! Form::submit('Eliminar', ['class' => 'btn btn-sm btn-danger']) !!}
+                          {!! Form::button('<i class="fas fa-trash"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-sm btn-danger', 'style' => 'width: 79px']) !!}
                         {!! Form::close()  !!}
                       @endcan
                     </td>

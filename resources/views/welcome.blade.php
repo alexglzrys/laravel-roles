@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <style>
             html, body {
                 background-color: #fff;
@@ -87,7 +88,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Roles
+                    <i class="fas fa-shield-alt"></i> Laravel Roles
                 </div>
                 <p class="name-app">Sistema de Administración de Roles y Permisos mediante el paquete Shinobi</p>
                 <div class="links">

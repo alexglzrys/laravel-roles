@@ -10,4 +10,4 @@
     <span class="invalid-feedback">{{ $message }}</span>
   @enderror
 </div>
-{!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+{!! Form::button('<i class="fas fa-save"></i> Guardar', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}

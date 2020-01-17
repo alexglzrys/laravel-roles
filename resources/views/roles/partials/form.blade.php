@@ -44,4 +44,4 @@
     @endforeach
   </ul>
 </div>
-{!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+{!! Form::button('<i class="fas fa-save"></i> Guardar', ['type' => 'sumbit', 'class' => 'btn btn-primary']) !!}

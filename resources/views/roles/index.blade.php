@@ -6,9 +6,9 @@
       <div class="col-md-8 offset-md-2">
         <div class="card">
           <div class="card-header">
-            <h5 class="float-left">Administrador del Catálogo de Roles</h5>
+            <h5 class="float-left"><i class="fas fa-book-reader"></i> Administrador del Catálogo de Roles</h5>
             @can('roles.create')
-              <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary float-right">Crear</a>
+              <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary float-right"><i class="fas fa-plus-circle"></i> Crear</a>
             @endcan
           </div>
           <div class="card-body">
@@ -28,19 +28,19 @@
                     <td width="10">
                       <!-- ¿El usuario puede ver los detalles de un rol? -->
                       @can('roles.show')
-                        <a href="{{ route('roles.show', $role->id) }}" class="btn btn-sm btn-success">Mostrar</a>
+                        <a href="{{ route('roles.show', $role->id) }}" class="btn btn-sm btn-success" style="width: 79px"><i class="fas fa-eye"></i> Mostrar</a>
                       @endcan
                     </td>
                     <td width="10">
                       <!-- ¿El usuario puede editar los detalles de un rol? -->
                       @can('roles.edit')
-                        <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-sm btn-warning" style="width: 79px"><i class="fas fa-edit"></i> Editar</a>
                       @endcan
                     </td>
                     <td width="10">
                       @can('roles.destroy')
                         {!! Form::open(['route' => ['roles.destroy', $role->id], 'method' => 'delete']) !!}
-                          {!! Form::submit('Eliminar', ['class' => 'btn btn-sm btn-danger']) !!}
+                          {!! Form::button('<i class="fas fa-trash"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-sm btn-danger', 'style' => 'width: 79px']) !!}
                         {!! Form::close() !!}
                       @endcan
                     </td>
