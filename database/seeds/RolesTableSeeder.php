@@ -17,7 +17,7 @@ class RolesTableSeeder extends Seeder
         Role::create([
             'name' => 'Administrador',
             'slug' => 'admin',
-            'description' => 'Administrador/root del sistema',
+            'description' => 'Administrador del sistema',
             'special' => 'all-access'       // ver la estructura de la tabla roles -- campo enum
         ]);
     }

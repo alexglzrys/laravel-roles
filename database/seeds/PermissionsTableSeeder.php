@@ -51,7 +51,7 @@ class PermissionsTableSeeder extends Seeder
             'description'   => 'Muestra los detalles específicos de un producto registrado en el sistema'
         ]);
         Permission::create([
-            'name'          => 'Registraar productos',
+            'name'          => 'Registrar productos',
             'slug'          => 'products.create',
             'description'   => 'Registra cualquier producto en el sistema'
         ]);
